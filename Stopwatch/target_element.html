@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TargetElement</title>
+</head>
+<body>
+  <div class="class">
+    I'm the querySelector for class
+  </div>  
+  
+  <div id="id_query">
+    I'm the querySelector for id
+  </div>
+
+  <div id="id">
+    The getElementById  
+  </div>
+
+  <script>
+  // document.querySelector('.class').innerHTML = "I'm the query selector for class works"
+  // document.querySelector('#id_query').innerHTML = "I'm the querySelector for id works"
+  // document.getElementById('id').innerHTML = "The getByElementById works"
+
+  let class_var = document.querySelector('.class')
+  class_var.textContent = "The querySelector for class class_var WORKS!"
+
+  let id_query_var = document.querySelector('#id_query')
+  id_query_var.textContent = "The querySelector for id id_query_var WORKS!"
+
+  let id_var = document.getElementById('id')
+  id_var.textContent = "getElementById id_var WORKS"
+  </script>
+</body>
+</html>

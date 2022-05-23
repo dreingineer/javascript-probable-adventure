@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adding Content</title>
+</head>
+<body>
+  <button class="add_hello">
+    Add Hello
+  </button>
+  <div class="hello_text">
+    Hello
+  </div>
+
+  <button class="start_interval">
+    Start Interval
+  </button>
+  <div class="seconds">
+
+  </div>
+  <script>
+    let query_hello_text = document.querySelector('.hello_text')
+    let button_add_hello = document.querySelector('.add_hello')
+
+
+    button_add_hello.addEventListener('click', () => {
+      query_hello_text.textContent += " Hello! "
+    })
+
+
+    let s = 0;
+    let counter;
+    let start_interval = document.querySelector('.start_interval')
+    let seconds = document.querySelector('.seconds')
+
+    start_interval.addEventListener('click', () => {
+      if(!counter) {
+        counter = setInterval(run_seconds, 1000)
+      }
+    })
+
+    let run_seconds = () => {
+      seconds.textContent = s + 1
+      s++
+    }
+
+  </script>
+</body>
+</html>
