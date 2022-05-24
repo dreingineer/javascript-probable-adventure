@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="time">
+      00:00:00
+    </div>
+    <div class="options">
+      <button class="start">Start</button>
+      <button class="stop">Stop</button>
+      <button class="reset">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let ms = 0, s=0, m=0;
+    let counter;
+    
+    let start = document.querySelector('.start')
+    let stop_timer = document.querySelector('.stop')
+    let reset_timer = document.querySelector('.reset')
+    let time = document.querySelector('.time')
+
+    start.addEventListener('click', () => {
+      let run = () => {
+        time.textContent = currentTime()
+        ms++
+        if(ms == 100) {
+          ms = 0
+          s++
+        }
+        if(s==60) {
+          s=0
+          m++
+        }
+      }
+      //para hindi uulit pag nag button click
+      if(!counter) {
+        counter = setInterval(run, 10)
+      }
+    }) 
+
+    stop_timer.addEventListener('click', () => {
+      clearInterval(counter)
+      counter = false //to satisfy the if(!counter); para pumasok siya sa setInterval ulit
+    })
+
+    reset_timer.addEventListener('click', () => {
+      clearInterval(counter)
+      counter = false
+
+      //sets time to 00:00:00 or 0:0:0
+      ms = '00', s = '00', m = '00'
+      time.textContent = currentTime()
+    })
+
+    let currentTime = () => {
+      return m + ":" + s + ":" + ms
+    }
+    
+  </script>
+</body>
+</html>
