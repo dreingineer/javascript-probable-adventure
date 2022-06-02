@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List Vanilla</title>
+  <style>
+    body {
+      background-color: #f5eec2;
+      color: #416a59;
+    }
+    button {
+      font-size: 10px;
+      border-color: transparent;
+      display: block;
+      padding: 5px 40px;
+    }
+    input {
+      font-size: 50px;
+      border-color: transparent;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    form {
+      height: 98vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" id="text" placeholder="Enter a Task">
+    <button class="submit">Submit</button>
+    <ul class="list">
+
+    </ul>
+  </form>
+  <script>
+    const form = document.querySelector("form")
+    const input = document.querySelector("input")
+    const list = document.querySelector("ul")
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      toDo();
+      input.value = "";
+    })
+
+    const toDo = () => {
+      if(input.value === '') {
+        alert('Task value is empty')
+      } else {
+        const value = input.value;
+
+        // creates li element each time we submit
+        const newList = document.createElement("li")
+        // adding the value of the input to the li
+        newList.textContent = value
+        // adds delete button
+        const deleteBtn = document.createElement("button")
+        // changing the content of the button
+        deleteBtn.textContent = 'Delete'
+        //adding the li inside the ul class="list"
+        list.append(newList)
+        //adding the delete button
+        newList.append(deleteBtn)
+      }
+    }
+
+  </script>
+</body>
+</html>
